@@ -6,10 +6,9 @@ var today = moment().format("dddd, MMMM Do");
 $("#currentDay").text(today);
 
 //Setting up hour blocks using Moment.js
-var hoursWorked = 0;
-var startingHour=moment().hour(9);
 $(".hour").each(function(hoursWorked){
-    moment().hour(startingHour+hoursWorked);
-    var hourDisplayed=moment().format("hA");
-    $(".hour").text(hourDisplayed);
+    let today = moment();
+    today.hour(9 + hoursWorked);
+    let date = moment(today).format("hA");
+    $(this).text(date);
 })
