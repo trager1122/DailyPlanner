@@ -32,17 +32,17 @@ $(document).ready(function () {
     let currentHour = parseInt(moment().format("H"));
     console.log(currentHour);
     if (blockedHour > currentHour) {
-      $("textarea").addClass("future");
-      $("textarea").removeClass("past");
-      $("textarea").removeClass("present");
+      $(this).addClass("future");
+      $(this).removeClass("past");
+      $(this).removeClass("present");
     } else if (blockedHour === currentHour) {
-      $("textarea").addClass("present");
-      $("textarea").removeClass("past");
-      $("textarea").removeClass("future");
+      $(this).addClass("present");
+      $(this).removeClass("past");
+      $(this).removeClass("future");
     } else {
-      $("textarea").addClass("past");
-      $("textarea").removeClass("present");
-      $("textarea").removeClass("future");
+      $(this).addClass("past");
+      $(this).removeClass("present");
+      $(this).removeClass("future");
     }
   });
 });
