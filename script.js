@@ -12,3 +12,20 @@ $(".hour").each(function(hoursWorked){
     let date = moment(today).format("hA");
     $(this).text(date);
 })
+
+//Color-coding time blocks based upon their time status of past, current, future
+$("textarea").each(function(numText){
+        let today = moment();
+        today.hour(9+numText);
+        let blockedHour=parseInt(moment(today).format("H"));
+        console.log (blockedHour);
+        let currentHour= parseInt(moment().format("H"));
+        console.log(currentHour);
+        if (blockedHour < currentHour) {
+            $("textarea").toggleClass("past", "future");
+        }
+        else if (blockedHour === currentHour){
+            $("textarea").toggleClass("current", "future");
+        }
+    
+})
