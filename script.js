@@ -23,7 +23,7 @@ $(document).ready(function () {
     $(this).text(date);
   });
 
-  //Color-coding time blocks based upon their time status of past, current, future
+  //Color-coding time blocks based upon their time status of past, present, future
   $("textarea").each(function (numText) {
     let today = moment();
     today.hour(9 + numText);
@@ -32,11 +32,17 @@ $(document).ready(function () {
     let currentHour = parseInt(moment().format("H"));
     console.log(currentHour);
     if (blockedHour > currentHour) {
-      $("textarea").toggleClass("future");
+      $("textarea").addClass("future");
+      $("textarea").removeClass("past");
+      $("textarea").removeClass("present");
     } else if (blockedHour === currentHour) {
-      $("textarea").toggleClass("present", "future");
-    } else if (blockedHour < currentHour) {
-      $("textarea").toggleClass("past", "present");
+      $("textarea").addClass("present");
+      $("textarea").removeClass("past");
+      $("textarea").removeClass("future");
+    } else {
+      $("textarea").addClass("past");
+      $("textarea").removeClass("present");
+      $("textarea").removeClass("future");
     }
   });
 });
