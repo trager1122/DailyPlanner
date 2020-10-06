@@ -1,16 +1,4 @@
 $(document).ready(function () {
-//   //Array of objects for each"" working hour
-//   var workingHours = [
-//     "9AM",
-//     "10AM",
-//     "11AM",
-//     "12PM",
-//     "1PM",
-//     "2PM",
-//     "3PM",
-//     "4PM",
-//     "5PM",
-//   ];
   //Sets displays current date at the top of the daily scheduler using Moment.js
   var today = moment().format("dddd, MMMM Do");
   $("#currentDay").text(today);
@@ -28,9 +16,7 @@ $(document).ready(function () {
     let today = moment();
     today.hour(9 + numText);
     let blockedHour = parseInt(moment(today).format("H"));
-    console.log(blockedHour);
     let currentHour = parseInt(moment().format("H"));
-    console.log(currentHour);
     if (blockedHour > currentHour) {
       $(this).addClass("future");
       $(this).removeClass("past");
@@ -45,4 +31,26 @@ $(document).ready(function () {
       $(this).removeClass("future");
     }
   });
-});
+
+  //Saving and Retrieving from Local Storage to display events to proper text areas
+  $(".saveBtn").click(function(){
+    ///Storing to local storage
+    var savebtnID=this.id;
+    var splitID=savebtnID.split("-");
+    var savebtnNum=splitID[1];
+    var blockEvents= JSON.parse(localStorage.getItem("blocks")) || ["","","","","","","","",""];
+    var eventRecord = $("#text-"+savebtnNum).val();
+    blockEvents.splice(parseInt(savebtnNum),1,eventRecord);
+    localStorage.setItem("blocks", JSON.stringify(blockEvents));
+    })
+    
+    var displayedEvents = [];
+    displayedEvents = JSON.parse(localStorage.getItem("blocks"));
+    $("textarea").each(function(textsDisplayed){
+        $("#text-"+ textsDisplayed.toString()).text(displayedEvents[parseInt(textsDisplayed)]);
+    })
+    // var displayedEvent= $(this).val();
+    // displayedEvent.text=blockEvents[numEvent].eventRecord;
+})
+
+
