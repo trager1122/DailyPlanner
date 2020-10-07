@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- CSS Required utilized to style this page -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link
       rel="stylesheet"
@@ -17,11 +19,14 @@
   </head>
 
   <body>
+    <!-- Daily Planner Banner -->
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+    <!-- Grid Layout for Daily Planner -->
     <div class="container">
       <div class="row m-0 p-0">
           <div class= "hour col-sm-1 m-0 p-0"></div>
@@ -69,6 +74,8 @@
         <div class= "col-sm-2 m-0 p-0"><button id="btn-8" class="saveBtn"><i class="fas fa-save fa-lg"></i></button></div>
       </div>
     </div>
+    
+    <!-- JavaScript Utilized -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./script.js"></script>

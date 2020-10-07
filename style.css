@@ -1,8 +1,10 @@
+/* Styling for Body */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
+/* Styling for each time block's text area */
 textarea{
   background: transparent;
   border: none;
@@ -11,6 +13,7 @@ textarea{
   border-left: 1px solid black;
 }
 
+/* Styling for the banner of the planner */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -18,42 +21,43 @@ textarea{
   border-radius: 0;
   border-bottom: 10px solid black;
 }
-
+/*Styling of div holding text areas for user input*/
 .description{
   white-space: pre-wrap;
 }
 
-.time-block{
-  text-align: center;
-  border-radius: 15px;
-}
-
+/*Styling for each individual row representing a time block*/
 .row {
   white-space: pre-wrap;
   border-top: 1px solid white;;
 }
 
+/*Styling for the column labeling of each work hour*/
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/*Color-coding when a time block has passed*/
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
+/*Color-coding for the current time block*/
 .present {
   background-color: #ff6961;
   color: white;
 }
 
+/*Color-coding for the time blocks that have yet to come*/
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/*Styling of Save Button for each time block*/
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -64,6 +68,7 @@ textarea{
   width: 50px;
 }
 
+/*Provides an animation where save disk icon enlarges when mouses hovers over it*/
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;

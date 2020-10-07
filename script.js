@@ -32,25 +32,33 @@ $(document).ready(function () {
     }
   });
 
-  //Saving and Retrieving from Local Storage to display events to proper text areas
-  $(".saveBtn").click(function(){
+  //Saving to Local Storage User-Entered Events into Local Storage
+  $(".saveBtn").click(function () {
     ///Storing to local storage
-    var savebtnID=this.id;
-    var splitID=savebtnID.split("-");
-    var savebtnNum=splitID[1];
-    var blockEvents= JSON.parse(localStorage.getItem("blocks")) || ["","","","","","","","",""];
-    var eventRecord = $("#text-"+savebtnNum).val();
-    blockEvents.splice(parseInt(savebtnNum),1,eventRecord);
+    var savebtnID = this.id;
+    var splitID = savebtnID.split("-");
+    var savebtnNum = splitID[1];
+    var blockEvents = JSON.parse(localStorage.getItem("blocks")) || [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ];
+    var eventRecord = $("#text-" + savebtnNum).val();
+    blockEvents.splice(parseInt(savebtnNum), 1, eventRecord);
     localStorage.setItem("blocks", JSON.stringify(blockEvents));
-    })
-    
-    var displayedEvents = [];
-    displayedEvents = JSON.parse(localStorage.getItem("blocks"));
-    $("textarea").each(function(textsDisplayed){
-        $("#text-"+ textsDisplayed.toString()).text(displayedEvents[parseInt(textsDisplayed)]);
-    })
-    // var displayedEvent= $(this).val();
-    // displayedEvent.text=blockEvents[numEvent].eventRecord;
-})
-
-
+  });
+  //Retrieving the Events from Local Storage and Displaying Them to the Correct Text Areas
+  var displayedEvents = [];
+  displayedEvents = JSON.parse(localStorage.getItem("blocks"));
+  $("textarea").each(function (textsDisplayed) {
+    $("#text-" + textsDisplayed.toString()).text(
+      displayedEvents[parseInt(textsDisplayed)]
+    );
+  });
+});
